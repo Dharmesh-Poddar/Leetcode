@@ -1,0 +1,43 @@
+
+class Solution {
+public:
+    int findComplement(int num) {
+         int arr[32];
+             int i=0;
+        while(num>0)
+        {
+            arr[i]=num%2;
+            num=num/2;
+            i++;
+            
+        }
+        
+        reverse(arr,arr+i);
+        for(int p=0;p<i;p++)
+        {
+            if(arr[p]==1)
+            {
+                arr[p]=0;
+                
+            }
+            else
+                arr[p]=1;
+            
+        }
+        
+       long int decimal=0;
+       long int base=1;
+        
+        for(int j=i-1;j>=0;j--)
+        {
+            decimal+= arr[j]*base;
+            base= base*2;
+            
+            
+            
+        }
+        
+        return decimal;
+  
+    }
+};
